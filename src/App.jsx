@@ -1,5 +1,5 @@
 import MovieBanner from './components/Hero.jsx';
-import MovieCard from './components/MovieCard.jsx';
+import Movies from './components/Movies.jsx';
 import Header from './layout/Header.jsx';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
         <>
          <Header />
          <MovieBanner />
-         <MovieCard />
+         <Movies />
         </>
     )
 };
