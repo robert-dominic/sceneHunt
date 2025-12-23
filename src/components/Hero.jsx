@@ -39,16 +39,16 @@ function MovieBanner() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-2">
             <button
-              className="flex items-center gap-2 px-8 py-3 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer"
+              className="flex items-center gap-2 px-5 py-3 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer"
             >
               View Details
             </button>
 
             <button
               onClick={() => setIsFavorite(!isFavorite)}
-              className="flex items-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-200 border border-white/30 cursor-pointer"
+              className="flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-200 border border-white/30 cursor-pointer"
             >
               <Star className={`w-5 h-5 transition-colors duration-200 ${
                 isFavorite ? 'text-white fill-white' : 'text-white'
