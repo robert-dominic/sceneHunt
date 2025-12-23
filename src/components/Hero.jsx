@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 function MovieBanner() {
 
@@ -9,10 +9,8 @@ function MovieBanner() {
     image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
   };
 
-  const [isFavorite, setIsFavorite] = useState(false);
-
   return (
-    <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden bg-black">
+    <section className="relative h-[500px] sm:h-[400px] lg:h-[600px] overflow-hidden bg-black">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -44,18 +42,7 @@ function MovieBanner() {
               className="flex items-center gap-2 px-5 py-3 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer"
             >
               View Details
-            </button>
-
-            <button
-              onClick={() => setIsFavorite(!isFavorite)}
-              className="flex items-center gap-2 px-5 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-200 border border-white/30 cursor-pointer"
-            >
-              <Star className={`w-5 h-5 transition-colors duration-200 ${
-                isFavorite ? 'text-white fill-white' : 'text-white'
-              }`} 
-              fill={isFavorite ? 'currentColor' : 'none'}
-              />
-              Add to Favorites
+              <ArrowRight />
             </button>
           </div>
         </div>
