@@ -1,21 +1,22 @@
-import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-function MovieBanner() {
+function MovieBanner({ featuredMovie }) {
 
-  const featuredMovie = {
-    title: "The Dark Knight",
-    overview: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-    image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
-  };
+  if (!featuredMovie) return null;
+
+  const {
+    title,
+    overview,
+    poster_path,
+  } = featuredMovie;
 
   return (
     <section className="relative h-[500px] sm:h-[400px] lg:h-[600px] overflow-hidden bg-black">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={featuredMovie.image}
-          alt={featuredMovie.title}
+          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          alt={title}
           className="w-full h-full object-cover"
         />
         {/* Dark Overlay */}
@@ -28,15 +29,15 @@ function MovieBanner() {
         <div className="max-w-2xl">
           {/* Movie Title */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
-            {featuredMovie.title}
+            {title}
           </h1>
 
           {/* Overview */}
           <p className="text-lg sm:text-xl text-gray-300 mb-8 line-clamp-3">
-            {featuredMovie.overview}
+            {overview}
           </p>
 
-          {/* Buttons */}
+          {/* View Details Button */}
           <div className="flex flex-wrap gap-2">
             <button
               className="flex items-center gap-2 px-5 py-3 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer"

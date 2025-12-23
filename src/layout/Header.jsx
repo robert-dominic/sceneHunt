@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Film, Star, Search } from 'lucide-react';
 
+
 export default function MovieHeader() {
   const [scrollY, setScrollY] = useState(0);
   const [query, setQuery] = useState("");
@@ -33,7 +34,7 @@ export default function MovieHeader() {
         <div className="flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
           
           {/* Logo */}
-          <div className="flex-shrink-0 flex gap-1 sm:gap-2 items-center"> 
+          <div className="flex-shrink-0 flex gap-1 sm:gap-3 items-center"> 
             <Film className="w-6 h-6 sm:w-8 sm:h-8 text-green-800" />
             <h1 className="hidden sm:block text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
               Scene<span className="text-green-800">Hunt</span>
@@ -70,7 +71,7 @@ export default function MovieHeader() {
           </div>
 
           {/* Favorites Button */}
-          <button className="flex-shrink-0 flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 bg-green-800 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
+          <button className="flex-shrink-0 flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer">
             <span className="hidden md:inline text-sm sm:text-base">Favorites</span>
             <Star className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" />
           </button>

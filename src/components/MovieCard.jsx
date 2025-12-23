@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Star, TrendingUp } from 'lucide-react';
 
 export default function MovieCard({ movie }) {

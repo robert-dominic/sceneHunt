@@ -1,14 +1,12 @@
 import MovieHeader from './layout/Header.jsx';
-import MovieBanner from './components/Hero.jsx';
-import Movies from './components/Movies.jsx';
+import HomePage from './pages/Home.jsx';
 
 function App() {
     return(
-        <>
-         <MovieHeader />
-         <MovieBanner />
-         <Movies />
-        </>
+        <div>
+          <MovieHeader />
+          <HomePage />
+        </div>
     )
 };
 
