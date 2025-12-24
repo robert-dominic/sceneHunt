@@ -14,13 +14,21 @@ export default function MovieCard({ movie }) {
     release_date,
   } = movie;
 
+  const posterUrl = poster_path
+    ? `https://image.tmdb.org/t/p/w500${poster_path}`
+    : `https://via.placeholder.com/500x750/1f2937/9ca3af?text=No+Image`;
+
   return (
     <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <div className="relative aspect-[8/6] overflow-hidden bg-gray-800 cursor-pointer">
         <img
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          src={posterUrl}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          loading='lazy'
+          onError={(e) => {
+            e.target.src = 'https://via.placeholder.com/500x750/1f2937/9ca3af?text=No+Image';          
+          }}
         />
       </div>
 

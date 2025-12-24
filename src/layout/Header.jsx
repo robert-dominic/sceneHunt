@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Film, Star, Search } from 'lucide-react';
+import { Film, Star, Search, ArrowLeft } from 'lucide-react';
 
 
-export default function MovieHeader() {
+export default function MovieHeader(
+    { 
+        onSearch, 
+        onBackToHome, 
+        isSearching,
+        onSearchChange, 
+        searchQuery: query
+    }
+) {
   const [scrollY, setScrollY] = useState(0);
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +24,7 @@ export default function MovieHeader() {
 
   const handleSubmit = () => {
     if (!query.trim()) return;
-    console.log('Search for:', query);
+    onSearch?.(query);
   };
 
   const handleKeyDown = (e) => {
@@ -35,10 +42,24 @@ export default function MovieHeader() {
           
           {/* Logo */}
           <div className="flex-shrink-0 flex gap-1 sm:gap-3 items-center"> 
-            <Film className="w-6 h-6 sm:w-8 sm:h-8 text-green-800" />
-            <h1 className="hidden sm:block text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
-              Scene<span className="text-green-800">Hunt</span>
-            </h1>
+            {isSearching ? (
+                <button
+                  onClick={onBackToHome}
+                  className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                >
+                  <ArrowLeft className="w-6 h-6 sm:w-8 sm:h-8 text-green-800" />
+                  <h1 className="hidden sm:block text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
+                    Scene<span className="text-green-800">Hunt</span>
+                  </h1>
+                </button>
+            ) : (
+            <>
+              <Film className="w-6 h-6 sm:w-8 sm:h-8 text-green-800" />
+              <h1 className="hidden sm:block text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
+                Scene<span className="text-green-800">Hunt</span>
+              </h1>
+            </>
+            )}              
           </div>
 
           {/* Search Bar */}
@@ -54,19 +75,11 @@ export default function MovieHeader() {
               <input
                 type="text"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => onSearchChange(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Search movies..."
                 className="flex-1 min-w-0 bg-transparent text-white placeholder-gray-300 outline-none py-2 sm:py-2.5 text-sm sm:text-base pr-1"
               />
-
-              {/* Search button */}
-              <button
-                onClick={handleSubmit}
-                className="flex-shrink-0 px-2 sm:px-5 py-2 sm:py-2.5 text-emerald-400 text-xs sm:text-base font-semibold hover:text-emerald-300 transition-colors duration-200"
-              >
-                Search
-              </button>
             </div>
           </div>
 
