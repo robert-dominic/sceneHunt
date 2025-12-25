@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Film, Star, Search, ArrowLeft } from 'lucide-react';
 
@@ -11,6 +12,7 @@ export default function MovieHeader(
         searchQuery: query
     }
 ) {
+  const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -84,7 +86,10 @@ export default function MovieHeader(
           </div>
 
           {/* Favorites Button */}
-          <button className="flex-shrink-0 flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer">
+          <button 
+            onClick={() => navigate('/favorites')}
+            className="flex-shrink-0 flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+          >
             <span className="hidden md:inline text-sm sm:text-base">Favorites</span>
             <Star className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" />
           </button>
