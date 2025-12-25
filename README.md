@@ -2,8 +2,6 @@
 
 A modern, responsive movie discovery app built with React that lets you browse popular movies, search for your favorites, and manage a personal watchlist.
 
-![SceneHunt Preview](https://via.placeholder.com/800x400/1f2937/9ca3af?text=SceneHunt+Movie+App)
-
 ## Features
 
 - **Browse Popular Movies**: Discover trending movies with beautiful posters and ratings
