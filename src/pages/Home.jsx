@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import MovieHeader from '../layout/Header';
 import MovieBanner from '../components/Hero';
 import MovieCard from '../components/MovieCard';
+import SkeletonCard from '../layout/skeleton';
 import { getPopularMovies, searchMovies } from '../utils/tmdb';
 
-export default function HomePage() {
+export default function HomePage({ addToFavorites, removeFromFavorites, isFavorite}) {
   const [movies, setMovies] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -87,14 +88,29 @@ export default function HomePage() {
 
           {/* Loading state */}
           {loading && (
-            <p className="text-white text-center py-20">Loading...</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              {Array.from({ length: 10 }).map((_, index) => (
+                <SkeletonCard key={index} />
+              ))}
+            </div>
           )}
 
           {/* Movies grid */}
           {!loading && movies.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
               {movies.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} />
+                <MovieCard 
+                  key={movie.id} 
+                  movie={movie} 
+                  isFavorite={isFavorite(movie.id)}
+                  onToggleFavorite={() => {
+                    if (isFavorite(movie.id)) {
+                        removeFromFavorites(movie.id);
+                    } else {
+                        addToFavorites(movie);
+                    }
+                  }}
+                />
               ))}
             </div>
           )}
