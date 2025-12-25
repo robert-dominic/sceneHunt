@@ -55,7 +55,7 @@ function App() {
                 />
               }
             />
-            <Route path="favorites" element={
+            <Route path="/favorites" element={
                 <FavoritesPage
                   favorites={favorites}
                   removeFromFavorites={removeFromFavorites}
