@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import MovieCard from '../components/MovieCard';
 
-export default function FavoritesPage({ favorites, removeFromFavorites }) {
+export default function FavoritesPage({ favorites = [], removeFromFavorites }) {
   const navigate = useNavigate();
 
   return (
