@@ -28,7 +28,7 @@ function MovieBanner({ featuredMovie }) {
       <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div className="max-w-2xl">
           {/* Movie Title */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <h1 className="text-5xl sm:text-5xl lg:text-6xl font-bold text-white mb-8">
             {title}
           </h1>
 
@@ -36,16 +36,6 @@ function MovieBanner({ featuredMovie }) {
           <p className="text-lg sm:text-xl text-gray-300 mb-8 line-clamp-3">
             {overview}
           </p>
-
-          {/* View Details Button */}
-          <div className="flex flex-wrap gap-2">
-            <button
-              className="flex items-center gap-2 px-5 py-3 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer"
-            >
-              View Details
-              <ArrowRight />
-            </button>
-          </div>
         </div>
       </div>
     </section>
